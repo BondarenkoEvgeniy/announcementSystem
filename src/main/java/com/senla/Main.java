@@ -14,5 +14,6 @@ public class Main {
         IMessageService messageService = context.getBean( IMessageService.class );
         IAnnouncementService announcementService = context.getBean( IAnnouncementService.class );
         ICommentService commentService = context.getBean( ICommentService.class );
+
     }
 }
