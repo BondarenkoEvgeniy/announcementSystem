@@ -5,7 +5,11 @@ import com.senla.api.service.IUserService;
 import com.senla.config.ExtendedModelMapper;
 import com.senla.model.User;
 import com.senla.model.dto.UserDto;
+import com.senla.model.dto.filter.UserFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -41,5 +45,26 @@ public class UserService implements IUserService {
     public void deleteUser(Long id){
         User user = userDao.getById( id );
         userDao.delete( user );
+    }
+
+    @Override
+    public UserDto getByUsername(String username) {
+        UserFilter userFilter = new UserFilter();
+        userFilter.setName(username);
+        User user = userDao.getByFilter(userFilter).stream()
+                .findFirst()
+                .orElse(null);
+        if (user != null) {
+            return modelMapper.map(user, UserDto.class);
+        } else {
+            throw new UsernameNotFoundException("Пользователь не найден");
+        }
+    }
+
+    @Override
+    public UserDto getCurrentUserProfile() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        return getByUsername(currentPrincipalName);
     }
 }

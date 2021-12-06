@@ -10,4 +10,7 @@ public interface IUserService {
 
     void deleteUser(Long id);
 
+    UserDto getByUsername(String username);
+
+    UserDto getCurrentUserProfile();
 }

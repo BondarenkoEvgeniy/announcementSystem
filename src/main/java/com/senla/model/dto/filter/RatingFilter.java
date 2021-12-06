@@ -9,6 +9,6 @@ import lombok.Setter;
 public class RatingFilter {
     private Long id;
     private Double rating;
-    private User messageToUser;
-    private User messageFromUser;
+    private User ratingToUser;
+    private User ratingFromUser;
 }

@@ -35,5 +35,8 @@ public class User extends AbstractModel{
     private UserRole userRole;
     @Column(name = "registration_date")
     private LocalDate registrationDate;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userLoginId", nullable = false)
+    private UserLogin userLogin;
 
 }
