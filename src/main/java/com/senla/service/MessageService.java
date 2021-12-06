@@ -2,7 +2,7 @@ package com.senla.service;
 
 import com.senla.api.dao.IMessageDao;
 import com.senla.api.service.IMessageService;
-import com.senla.config.ModelMapperMapList;
+import com.senla.config.ExtendedModelMapper;
 import com.senla.model.Message;
 import com.senla.model.dto.MessageDto;
 import com.senla.model.dto.filter.MessageFilter;
@@ -20,7 +20,7 @@ public class MessageService implements IMessageService {
     @Autowired
     private IMessageDao messageDao;
     @Autowired
-    private ModelMapperMapList modelMapper;
+    private ExtendedModelMapper modelMapper;
 
     @Override
     public void createMessage(MessageDto messageDto) {

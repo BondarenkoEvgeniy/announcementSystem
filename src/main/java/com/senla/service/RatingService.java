@@ -2,7 +2,7 @@ package com.senla.service;
 
 import com.senla.api.dao.IRatingDao;
 import com.senla.api.service.IRatingService;
-import com.senla.config.ModelMapperMapList;
+import com.senla.config.ExtendedModelMapper;
 import com.senla.model.Rating;
 import com.senla.model.dto.RatingDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class RatingService implements IRatingService {
     @Autowired
     private IRatingDao ratingDao;
     @Autowired
-    private ModelMapperMapList modelMapper;
+    private ExtendedModelMapper modelMapper;
 
     @Override
     public void createRating(RatingDto ratingDto) {

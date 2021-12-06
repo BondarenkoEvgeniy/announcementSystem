@@ -3,7 +3,7 @@ package com.senla.service;
 import com.senla.api.dao.IAnnouncementDao;
 import com.senla.api.dao.IPaymentDao;
 import com.senla.api.service.IPaymentService;
-import com.senla.config.ModelMapperMapList;
+import com.senla.config.ExtendedModelMapper;
 import com.senla.model.Announcement;
 import com.senla.model.AnnouncementStatus;
 import com.senla.model.Payment;
@@ -21,7 +21,7 @@ public class PaymentService implements IPaymentService {
     @Autowired
     private IAnnouncementDao announcementDao;
     @Autowired
-    private ModelMapperMapList modelMapper;
+    private ExtendedModelMapper modelMapper;
 
     @Override
     public void createPayment(PaymentDto paymentDto) {

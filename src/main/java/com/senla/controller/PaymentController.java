@@ -16,7 +16,7 @@ public class PaymentController {
     private IPaymentService paymentService;
 
     @PostMapping
-    public ResponseEntity<Void> createMessage(@RequestBody PaymentDto paymentDto) {
+    public ResponseEntity<Void> createPayment(@RequestBody PaymentDto paymentDto) {
         paymentService.createPayment(paymentDto);
         return ResponseEntity.noContent().build();
     }

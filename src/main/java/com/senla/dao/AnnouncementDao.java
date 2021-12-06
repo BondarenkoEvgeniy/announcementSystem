@@ -29,7 +29,7 @@ public class AnnouncementDao extends AbstractDao<Announcement> implements IAnnou
         CriteriaQuery<Announcement> query = builder.createQuery( Announcement.class );
         Root<Announcement> root = query.from( Announcement.class );
         //if (adsPredicate(announcementFilter, builder, root).length != 0) {
-        query.where( adsPredicate( announcementFilter, builder, root ) );
+        query.where( announcementPredicate( announcementFilter, builder, root ) );
         if (announcementFilter.getOrderBy() != null && announcementFilter.getOrderDirection() != null) {
             if (announcementFilter.getOrderDirection().equals( "asc" )) {
                 query.orderBy( builder.asc( root.get( announcementFilter.getOrderBy() ) ) );
@@ -49,7 +49,7 @@ public class AnnouncementDao extends AbstractDao<Announcement> implements IAnnou
 
     }
 
-    private Predicate[] adsPredicate(AnnouncementFilter announcementFilter, CriteriaBuilder builder, Root<Announcement> root) {
+    private Predicate[] announcementPredicate(AnnouncementFilter announcementFilter, CriteriaBuilder builder, Root<Announcement> root) {
         List<Predicate> predicates = new ArrayList<>();
         if (!ObjectUtils.isEmpty(announcementFilter.getName())) {
             predicates.add(builder.like(root.get("name"), "%" + announcementFilter.getName() + "%"));

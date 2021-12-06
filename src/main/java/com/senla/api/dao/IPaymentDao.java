@@ -1,17 +1,8 @@
 package com.senla.api.dao;
 
 import com.senla.model.Payment;
+import com.senla.model.dto.filter.PaymentFilter;
 
-import java.util.List;
+public interface IPaymentDao  extends IAbstractFilterDao<Payment, PaymentFilter>{
 
-public interface IPaymentDao {
-    Payment getById(Long id);
-
-    void save (Payment payment);
-
-    Payment update(Payment payment);
-
-    void delete(Payment payment);
-
-    List<Payment> getAll();
 }

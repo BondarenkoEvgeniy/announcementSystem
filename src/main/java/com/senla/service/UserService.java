@@ -2,7 +2,7 @@ package com.senla.service;
 
 import com.senla.api.dao.IUserDao;
 import com.senla.api.service.IUserService;
-import com.senla.config.ModelMapperMapList;
+import com.senla.config.ExtendedModelMapper;
 import com.senla.model.User;
 import com.senla.model.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class UserService implements IUserService {
     @Autowired
     private IUserDao userDao;
     @Autowired
-    private ModelMapperMapList modelMapper;
+    private ExtendedModelMapper modelMapper;
 
     @Override
     public void createUser(UserDto userDto) {

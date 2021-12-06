@@ -1,17 +1,8 @@
 package com.senla.api.dao;
 
 import com.senla.model.User;
+import com.senla.model.dto.filter.UserFilter;
 
-import java.util.List;
+public interface IUserDao  extends IAbstractFilterDao<User, UserFilter>{
 
-public interface IUserDao {
-    User getById(Long id);
-
-    void save (User user);
-
-    User update(User user);
-
-    void delete(User user);
-
-    List<User> getAll();
 }

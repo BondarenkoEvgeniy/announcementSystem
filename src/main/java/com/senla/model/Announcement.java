@@ -26,7 +26,7 @@ public class Announcement extends AbstractModel{
     @Column(name = "posting_date", nullable = false)
     private LocalDate postingDate;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "announcement")
-    @LazyCollection(LazyCollectionOption.FALSE)
+    @LazyCollection(LazyCollectionOption.TRUE)
     private List<Comment> comments;
     @Column(name = "announcement_status", nullable = false)
     @Enumerated(EnumType.STRING)

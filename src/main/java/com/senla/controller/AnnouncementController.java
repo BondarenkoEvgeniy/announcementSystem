@@ -44,7 +44,7 @@ public class AnnouncementController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/{id}/comment")
+    @PostMapping("/comment")
     public ResponseEntity<Void> addComment(@RequestBody CommentDto commentDto) {
         commentService.createComment(commentDto);
         return ResponseEntity.noContent().build();

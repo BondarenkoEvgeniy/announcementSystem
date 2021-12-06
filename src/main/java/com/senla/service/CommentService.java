@@ -2,7 +2,7 @@ package com.senla.service;
 
 import com.senla.api.dao.ICommentDao;
 import com.senla.api.service.ICommentService;
-import com.senla.config.ModelMapperMapList;
+import com.senla.config.ExtendedModelMapper;
 import com.senla.model.Comment;
 import com.senla.model.dto.CommentDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class CommentService implements ICommentService {
     @Autowired
     private ICommentDao commentDao;
     @Autowired
-    private ModelMapperMapList modelMapper;
+    private ExtendedModelMapper modelMapper;
 
     @Override
     public void createComment(CommentDto commentDto) {

@@ -2,7 +2,7 @@ package com.senla.service;
 
 import com.senla.api.dao.IAnnouncementDao;
 import com.senla.api.service.IAnnouncementService;
-import com.senla.config.ModelMapperMapList;
+import com.senla.config.ExtendedModelMapper;
 import com.senla.model.Announcement;
 import com.senla.model.dto.AnnouncementDto;
 import com.senla.model.dto.filter.AnnouncementFilter;
@@ -20,7 +20,7 @@ public class AnnouncementService implements IAnnouncementService {
     @Autowired
     private IAnnouncementDao announcementDao;
     @Autowired
-    private ModelMapperMapList modelMapper;
+    private ExtendedModelMapper modelMapper;
 
     @Override
     public void createAnnouncement(AnnouncementDto announcementDto) {
